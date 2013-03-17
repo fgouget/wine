@@ -457,5 +457,6 @@ START_TEST(confdlg)
     test_drvCommConfigDialogW();
     test_drvGetDefaultCommConfigA();
     test_drvGetDefaultCommConfigW();
-
+    trace("WTBS Sleeping for 5 minutes to cause a timeout\n");
+    Sleep(5 * 60 * 1000);
 }
