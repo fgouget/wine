@@ -1,4 +1,4 @@
-/* WTBS Dummy patch
+/*
  * Unit test suite for serialui API functions
  *
  * Copyright 2007 Detlef Riekenberg

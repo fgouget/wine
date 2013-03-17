@@ -1,4 +1,4 @@
-/* WTBS Dummy patch
+/*
  * This DLL contains the user interface for the serial driver.
  *    a dialog box to configure the specified COMM port
  *    an interface to the control panel (??)
