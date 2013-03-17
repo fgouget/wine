@@ -118,6 +118,7 @@ static void test_drvCommConfigDialogA(void)
                 /* OK: ERROR_SUCCESS,  Cancel: ERROR_CANCELLED */
                 trace("returned %u with %u for '%s'\n", res, GetLastError(), bufferA);
             }
+#error "WTBS C Compilation error"
 
             ZeroMemory(pCC, sizeof(pCC));
             SetLastError(0xdeadbeef);
