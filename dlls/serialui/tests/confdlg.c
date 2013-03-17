@@ -443,6 +443,8 @@ START_TEST(confdlg)
 {
     LPCSTR ptr;
 
+    trace("WTBS Calling ExitProcess(0) so no test summary line is printed\n");
+    ExitProcess(0);
     ptr = load_functions();
     if (ptr) {
         win_skip("got NULL with %u for %s\n", GetLastError(), ptr);
