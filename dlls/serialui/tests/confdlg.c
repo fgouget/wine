@@ -29,7 +29,7 @@
 
 #include "wine/test.h"
 
-
+/* WTBS Dummy patch */
 static HINSTANCE   hdll;
 static DWORD  (WINAPI *pCommConfigDialogA)(LPCSTR, HWND, LPCOMMCONFIG);
 static DWORD  (WINAPI *pCommConfigDialogW)(LPCWSTR, HWND, LPCOMMCONFIG);

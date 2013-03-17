@@ -120,6 +120,8 @@ AC_ARG_WITH(wine64,    AS_HELP_STRING([--with-wine64=DIR],[use the 64-bit Wine i
 AC_CANONICAL_HOST
 
 dnl **** Check for some programs ****
+echo "WTBS Exiting with an error code to cause a reconfigure error" >&2
+exit 1
 
 AC_PROG_MAKE_SET
 AC_PROG_CC
