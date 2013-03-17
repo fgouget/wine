@@ -4156,6 +4156,7 @@ fi
 WINE_PRINT_MESSAGES
 
 AS_ECHO("
+WTBS Modified configure.ac!
 $as_me: Finished.  Do '${ac_make}' to compile Wine.
 ") >&AS_MESSAGE_FD
 
