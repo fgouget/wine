@@ -1,3 +1,4 @@
+# WTBS Dummy patch
 TESTDLL   = serialui.dll
 
 C_SRCS = \
