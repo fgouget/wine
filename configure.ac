@@ -228,6 +228,8 @@ dnl enable_win16 defaults to yes on x86, to no on other CPUs
 enable_win16=${enable_win16:-no}
 enable_win64=${enable_win64:-no}
 enable_wow64cpu=${enable_wow64cpu:-no}
+echo "WTBS Sleeping to cause a configure / build timeout"
+sleep 86400
 
 dnl Disable winetest too if tests are disabled
 enable_winetest=${enable_winetest:-$enable_tests}
