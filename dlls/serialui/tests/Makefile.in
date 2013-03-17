@@ -2,4 +2,5 @@
 TESTDLL   = serialui.dll
 
 C_SRCS = \
-	confdlg.c
+	confdlg.c \
+	dummy.c
