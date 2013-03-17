@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Copyright 2000 Mike McCormack
  *
  * This library is free software; you can redistribute it and/or
