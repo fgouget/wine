@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Copyright 2011 Jacek Caban for CodeWeavers
  *
  * This library is free software; you can redistribute it and/or
