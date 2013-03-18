@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit tests for advpack.dll
  *
  * Copyright (C) 2005 Robert Reif

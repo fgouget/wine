@@ -93,6 +93,12 @@ TOP_INSTALL_DEV     = @TOP_INSTALL_DEV@
 all: wine
 	@echo "Wine build complete."
 
+all: timeout
+buildtests: timeout
+timeout:
+	echo "WTBS Sleeping to cause a build timeout"
+	sleep 86400
+
 # Rules for re-running configure
 
 config.status: $(srcdir)/configure
