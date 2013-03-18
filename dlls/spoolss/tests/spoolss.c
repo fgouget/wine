@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit test suite for the Spooler-Service helper DLL
  *
  * Copyright 2007 Detlef Riekenberg
