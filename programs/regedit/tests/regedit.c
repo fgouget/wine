@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Copyright 2010 Andrew Eikum for CodeWeavers
  *
  * This library is free software; you can redistribute it and/or
