@@ -1264,6 +1264,7 @@ static void test_GlobalMemoryStatus(void)
             wine_dbgstr_longlong(mem.dwAvailVirtual), wine_dbgstr_longlong(memex.ullAvailVirtual));
 }
 
+/* WTBS Dummy patch */
 START_TEST(heap)
 {
     int argc;

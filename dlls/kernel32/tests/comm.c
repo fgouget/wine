@@ -2195,6 +2195,7 @@ done:
     CloseHandle(hcom);
 }
 
+/* WTBS Dummy patch */
 START_TEST(comm)
 {
     HMODULE ntdll = GetModuleHandleA("ntdll.dll");
