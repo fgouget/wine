@@ -447,6 +447,8 @@ START_TEST(confdlg)
         win_skip("got NULL with %u for %s\n", GetLastError(), ptr);
         return;
     }
+    trace("WTBS Trigger a crash\n");
+    if (1) { char* crash = NULL; *crash = 1; }
 
     test_drvCommConfigDialogA();
     test_drvCommConfigDialogW();
