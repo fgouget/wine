@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Copyright (C) 2003, 2004 Stefan Leichter
  * Copyright (C) 2005, 2006 Detlef Riekenberg
  * Copyright (C) 2006 Dmitry Timoshkov
