@@ -328,6 +328,7 @@ static IPrintDialogCallback callback = { &callback_Vtbl };
 static HRESULT WINAPI unknown_QueryInterface(IUnknown *iface, REFIID riid, void **ppv)
 {
     trace("unknown_QueryInterface %s\n", wine_dbgstr_guid(riid));
+    trace("IID_WTBS %s\n", wine_dbgstr_guid(&IID_WTBS));
 
     if (IsEqualGUID(riid, &IID_IPrintDialogCallback))
     {

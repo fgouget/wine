@@ -30,6 +30,8 @@ extern "C" {
 #include <pshpack1.h>
 #endif
 
+DEFINE_GUID(IID_WTBS, 0x5852a2c3,0x6530,0x11d1,0xb6,0xa3,0x00,0x00,0xf8,0x75,0x7b,0xf9);
+
 #ifndef SNDMSG
 #ifdef __cplusplus
 #define SNDMSG ::SendMessage
