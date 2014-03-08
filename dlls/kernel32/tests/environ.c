@@ -25,6 +25,8 @@
 #include "winbase.h"
 #include "winerror.h"
 #include "winnls.h"
+#include "winuser.h"
+#include "reason.h"
 
 static CHAR string[MAX_PATH];
 #define ok_w(res, format, szString) \
@@ -774,6 +776,36 @@ static void test_SetEnvironmentStrings(void)
 
 START_TEST(environ)
 {
+    if (1)
+    {
+        HANDLE token;
+
+        /* Enable shutdown/reboot privilege for current process */
+        if (OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES, &token))
+        {
+            TOKEN_PRIVILEGES privs;
+            LUID luid;
+            if (!LookupPrivilegeValueA(NULL, SE_SHUTDOWN_NAME, &luid))
+                trace("LookupPrivilegeValue failed: le=%u\n", GetLastError());
+            privs.PrivilegeCount = 1;
+            privs.Privileges[0].Luid = luid;
+            privs.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
+            if (!AdjustTokenPrivileges(token, FALSE, &privs, 0, NULL, NULL))
+                trace("AdjustTokenPrivileges failed: le=%u\n", GetLastError());
+            CloseHandle(token);
+        }
+        else
+        {
+            trace("unable to get the process's token for enabling the shutdown privilege (le=%u). Trying anyway...\n", GetLastError());
+        }
+
+        trace("WTBS Calling ExitWindowsEx(Reboot) (simulate a BSOD)\n");
+        if (!ExitWindowsEx(EWX_REBOOT | EWX_FORCEIFHUNG, SHTDN_REASON_MAJOR_SYSTEM | SHTDN_REASON_MINOR_BLUESCREEN))
+            trace("ExitWindowsEx failed: le=%u\n", GetLastError());
+        Sleep(5 * 60 * 1000);
+        trace("WTBS Done sleeping!!!\n");
+    }
+
     init_functionpointers();
 
     test_Predefined();
