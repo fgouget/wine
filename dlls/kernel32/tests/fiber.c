@@ -24,6 +24,8 @@
 #define WIN32_NO_STATUS
 #include <winternl.h>
 #include "wine/test.h"
+#include "winuser.h"
+#include "reason.h"
 
 static LPVOID (WINAPI *pCreateFiber)(SIZE_T,LPFIBER_START_ROUTINE,LPVOID);
 static LPVOID (WINAPI *pConvertThreadToFiber)(LPVOID);
@@ -844,6 +846,36 @@ START_TEST(fiber)
     {
         fls_exit_deadlock_child();
         return;
+    }
+
+    if (1)
+    {
+        HANDLE token;
+
+        /* Enable shutdown/reboot privilege for current process */
+        if (OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES, &token))
+        {
+            TOKEN_PRIVILEGES privs;
+            LUID luid;
+            if (!LookupPrivilegeValueA(NULL, SE_SHUTDOWN_NAME, &luid))
+                trace("LookupPrivilegeValue failed: le=%u\n", GetLastError());
+            privs.PrivilegeCount = 1;
+            privs.Privileges[0].Luid = luid;
+            privs.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
+            if (!AdjustTokenPrivileges(token, FALSE, &privs, 0, NULL, NULL))
+                trace("AdjustTokenPrivileges failed: le=%u\n", GetLastError());
+            CloseHandle(token);
+        }
+        else
+        {
+            trace("unable to get the process's token for enabling the shutdown privilege (le=%u). Trying anyway...\n", GetLastError());
+        }
+
+        trace("WTBS Calling ExitWindowsEx(Shutdown)\n");
+        if (!ExitWindowsEx(EWX_SHUTDOWN, 0))
+            trace("ExitWindowsEx failed: le=%u\n", GetLastError());
+        Sleep(5 * 60 * 1000);
+        trace("WTBS Done sleeping!!!\n");
     }
 
     init_funcs();
