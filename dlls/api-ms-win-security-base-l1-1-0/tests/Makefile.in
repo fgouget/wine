@@ -1,0 +1,4 @@
+TESTDLL   = api-ms-win-security-base-l1-1-0.dll
+
+C_SRCS  = \
+	dummy.c
