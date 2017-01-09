@@ -4189,6 +4189,8 @@ static void test_shared_memory(BOOL is_child)
         wait_child_process(pi.hProcess);
         CloseHandle(pi.hThread);
         CloseHandle(pi.hProcess);
+        trace("WTBS Sleeping for 5 minutes to cause a timeout\n");
+        Sleep(5 * 60 * 1000);
     }
 
     UnmapViewOfFile(p);
