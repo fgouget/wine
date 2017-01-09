@@ -163,6 +163,7 @@ static void test_drvCommConfigDialogA(void)
 
 /* ################# */
 
+/* WTBS Dummy patch */
 static void test_drvCommConfigDialogW(void)
 {
     COMMCONFIG  pCC[3];

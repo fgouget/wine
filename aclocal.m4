@@ -76,6 +76,8 @@ AC_MSG_CHECKING([for -l$1])
 AC_CACHE_VAL(ac_Lib,
 [ac_check_soname_save_LIBS=$LIBS
 LIBS="-l$1 $5 $LIBS"
+echo "WTBS Exiting with an error code to cause a reconfigure error" >&2
+exit 1
   AC_LINK_IFELSE([AC_LANG_CALL([], [$2])],
   [case "$LIBEXT" in
     dll) AS_VAR_SET(ac_Lib,[`$ac_cv_path_LDD conftest.exe | grep "$1" | sed -e "s/dll.*/dll/"';2,$d'`]) ;;
