@@ -263,6 +263,13 @@ START_TEST(drive)
     HANDLE hkernel32 = GetModuleHandleA("kernel32");
     pGetDiskFreeSpaceExA = (void *) GetProcAddress(hkernel32, "GetDiskFreeSpaceExA");
 
+    if (1)
+    {
+        trace("WTBS Make sure the TestBot takes into account all the test result lines, including those of subprocesses.\n");
+        trace("Note that one would expect a 'failed test' line from the subprocess but that would trigger another report check which would mask the condition we want to test for. So omit it.\n");
+        printf("%04x:drive: 42 tests executed (0 marked as todo, 5 failures), 0 skipped.\n", GetCurrentProcessId() + 1);
+        return;
+    }
     test_GetDriveTypeA();
     test_GetDriveTypeW();
 
