@@ -2205,6 +2205,12 @@ START_TEST(comm)
         pNtWriteFile = (void *)GetProcAddress(ntdll, "NtWriteFile");
     }
 
+    if (1)
+    {
+        printf("comm.c:%d: Test failed: WTBS Simulate an unreported test failure\n",
+               __LINE__);
+        return;
+    }
     test_ClearCommError(); /* keep it the very first test */
     test_FlushFileBuffers();
     test_BuildCommDCB();
