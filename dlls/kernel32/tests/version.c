@@ -921,6 +921,9 @@ static void test_PackageIdFromFullName(void)
 START_TEST(version)
 {
     init_function_pointers();
+    ok(0, "A test failure for the WTBS\n");
+    trace("WTBS Sleeping for 5 minutes to cause a timeout\n");
+    Sleep(5 * 60 * 1000);
 
     test_GetProductInfo();
     test_GetVersionEx();
