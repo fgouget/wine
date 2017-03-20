@@ -1153,6 +1153,12 @@ START_TEST(change)
     HMODULE hkernel32 = GetModuleHandleA("kernel32.dll");
     pReadDirectoryChangesW = (void *)GetProcAddress(hkernel32, "ReadDirectoryChangesW");
 
+    if (1)
+    {
+        /* WTBS Simulate an unrecognized unit test name */
+        printf("Fatal: test 'change' does not exist.\n");
+        ExitProcess(1);
+    }
     test_ffcnMultipleThreads();
     /* The above function runs a test that must occur before FindCloseChangeNotification is run in the
        current thread to preserve the emptiness of the wine user APC queue. To ensure this it should be
