@@ -1312,6 +1312,13 @@ START_TEST(codepage)
 {
     BOOL bUsedDefaultChar;
 
+    if (1)
+    {
+        /* WTBS Sleep for the default task timeout duration. */
+        trace("WTBS Sleeping for 120 seconds\n");
+        Sleep(120 * 1000);
+        return;
+    }
     test_destination_buffer();
     test_null_source();
     test_negative_source_length();
