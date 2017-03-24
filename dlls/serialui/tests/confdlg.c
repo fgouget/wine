@@ -158,6 +158,7 @@ static void test_drvCommConfigDialogW(void)
     DWORD       res;
     DWORD       len;
 
+    todo_if(1) ok(1, "WTBS A success in a todo test\n");
 
     /* test ports "com1" - "com4" */
     for (i = 1; i < 5 ; i++) {
