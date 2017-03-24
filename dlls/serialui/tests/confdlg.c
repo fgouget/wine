@@ -82,6 +82,7 @@ static void test_drvCommConfigDialogA(void)
     DWORD       res;
     DWORD       len;
 
+    ok(0, "WTBS A simple test failure\n");
 
     /* test ports "com1" - "com4" */
     for (i = 1; i < 5 ; i++) {
