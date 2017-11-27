@@ -1,0 +1,4 @@
+TESTDLL   = icmp.dll
+IMPORTS   = user32 advapi32
+
+C_SRCS = dummy.c
