@@ -72,6 +72,8 @@ my @source_vars = (
     "XTEMPLATE_SRCS"
 );
 
+print "WTBS make_makefiles was here!\n";
+
 my (@makefiles, %makefiles);
 my @nls_files;
 
@@ -421,6 +423,7 @@ sub update_makefiles(@)
 {
     my (@lines);
 
+    push @lines, "# WTBS make_makefile changes will likely trigger a reconfig\n";
     foreach my $file (sort @_)
     {
         next if $file eq "Makefile";
