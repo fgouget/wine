@@ -4345,6 +4345,7 @@ int main( int argc, char *argv[] )
     const char *makeflags = getenv( "MAKEFLAGS" );
     int i, j;
 
+    fprintf(stderr, "WTBS makedep was here!\n");
     if (makeflags) parse_makeflags( makeflags );
 
     i = 1;

@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit tests for atom functions
  *
  * Copyright (c) 2002 Alexandre Julliard
