@@ -596,4 +596,13 @@ START_TEST(atom)
     test_local_add_atom();
     test_local_get_atom_name();
     test_local_error_handling();
+    if (1)
+    {
+        int i;
+        /* WTBS Spam the test's output. Note that each line is 33 bytes on
+         * Windows due to the extra CR but in Wine it may be only 32 bytes.
+         */
+        for (i = 1; i <= 1024; i++)
+            printf("%4d 56789 123456789 123456789.\n", i);
+    }
 }
