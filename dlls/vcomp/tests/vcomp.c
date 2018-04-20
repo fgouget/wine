@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit test suite for vcomp
  *
  * Copyright 2012 Dan Kegel
