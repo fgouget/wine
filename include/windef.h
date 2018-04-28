@@ -354,6 +354,9 @@ typedef INT_PTR (CALLBACK *NEARPROC)();
 typedef INT_PTR (CALLBACK *PROC)();
 #endif
 
+/* WTBS Add a prototype to force a full recompilation */
+void FullRecompilationDummy(void);
+
 /* Macros to split words and longs. */
 
 #define LOBYTE(w)              ((BYTE)((DWORD_PTR)(w) & 0xFF))

@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit tests for code page to/from unicode translations
  *
  * Copyright (c) 2002 Dmitry Timoshkov
