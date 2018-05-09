@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * DLL for testing type 1 custom actions
  *
  * Copyright 2017 Zebediah Figura
