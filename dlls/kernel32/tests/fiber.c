@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit tests for fiber functions
  *
  * Copyright (c) 2010 André Hentschel
