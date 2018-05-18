@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * ntoskrnl.exe testing framework
  *
  * Copyright 2015 Sebastian Lackner

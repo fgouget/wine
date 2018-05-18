@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Copyright 2016-2018, 2021 Hugh McMaster
  *
  * This library is free software; you can redistribute it and/or

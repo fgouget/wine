@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit test suite for heap functions
  *
  * Copyright 2002 Geoffrey Hausheer

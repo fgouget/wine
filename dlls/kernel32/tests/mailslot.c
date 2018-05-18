@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  *  Mailslot regression test
  *
  *  Copyright 2003 Mike McCormack
