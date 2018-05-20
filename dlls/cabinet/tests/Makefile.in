@@ -4,3 +4,5 @@ IMPORTS   = cabinet
 C_SRCS = \
 	extract.c \
 	fdi.c
+
+RC_SRCS = resource.rc
