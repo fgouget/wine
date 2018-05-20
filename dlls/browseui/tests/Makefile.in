@@ -1,6 +1,8 @@
 TESTDLL   = browseui.dll
 IMPORTS   = ole32
 
-C_SRCS = \
+SOURCES = \
 	autocomplete.c \
+	dummy.c \
+	dummy.spec \
 	progressdlg.c
