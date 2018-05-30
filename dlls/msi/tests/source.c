@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Tests for MSI Source functions
  *
  * Copyright (C) 2006 James Hawkins
