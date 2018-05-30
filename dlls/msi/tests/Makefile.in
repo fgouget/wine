@@ -9,6 +9,7 @@ SOURCES = \
 	custom.c \
 	custom.spec \
 	db.c \
+	dummy.c \
 	format.c \
 	install.c \
 	msi.c \
