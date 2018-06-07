@@ -1,3 +1,148 @@
+****************************************
+
+
+    DO NOT USE FOR WINE DEVELOPMENT
+
+
+This Wine source has been modified for the Wine TestBot Test Suite.
+
+The goal of the WTBS is to make sure the Wine TestBot handles every patch
+correctly.
+
+
+Part of this implies testing compilation failures. So this branch contains
+patches which will cause all sorts of compilation errors.
+
+
+    IT IS NORMAL FOR THIS BRANCH TO FAIL TO COMPILE
+
+
+Generating the patch files
+--------------------------
+
+The most practical way to run the test suite is to first generate one
+email per commit:
+
+  git format-patch --no-numbered --subject-prefix="" origin/master..
+
+You can also add the --attach option to test attachment support.
+
+
+Submitting the tests to the TestBot
+-----------------------------------
+
+First you should really have your own TestBot instance.
+
+You will need it to automate checking the test suite results and to debug
+any issue anyway. It would also be very rude to submit the whole test suite
+to the official TestBot as it can take quite a long time to run. Finally
+note that the test suite is incompatible with test=all missions but
+test=module is ok.
+
+
+You can submit the main sequence of tests to your TestBot instance at once
+by running one of the following commands in the TestBot account:
+
+  cat *-WTBS-*.patch | formail -ds tools/testbot/bin/WinePatchesMLSubmit.pl
+
+or going through the patches website:
+
+  cat >testbot.procmail <<EOF
+UMASK = 0133
+:0 hbfw
+| ${HOME}/tools/patches/filter
+:0:
+${HOME}/tools/testbot/var/webpatches/.
+EOF
+  cat *-WTBS-*.patch | formail -ds procmail testbot.procmail
+  tools/testbot/bin/WinePatchesWebSubmit.pl
+
+
+You can also submit a single patchset with something like:
+
+  cat *-S4.*.patch | formail -ds tools/testbot/bin/WinePatchesMLSubmit.pl
+
+or a single test:
+
+  formail -ds tools/testbot/bin/WinePatchesMLSubmit.pl <0002-WTBS-*.patch
+
+Finally you can also pick a single file and submit it through the web
+interface.
+
+Note that the test suite also contains some mbox files containing extra
+tests. To run those just use one of the cat commands on the mbox(es).
+For instance:
+
+  cat wtbs-*.mbox | formail -ds tools/testbot/bin/WinePatchesMLSubmit.pl
+
+
+Checking the test suite results
+-------------------------------
+
+The TestBot results can be checked using TestWTBS:
+
+  tools/testbot/tests/TestWTBS
+
+You can restrict the checks to a specific job range with the --jobs option;
+and if you saved the TestBot's results and error notification emails to an
+mbox file you can have TestWTBS verify those too with the --mbox option.
+
+Note that if you put the patches in an email attachment, then
+WinePatchesMLSubmit.pl will have stripped the commit message which contains
+the TestWTBS directives. So for TestWTBS either don't use attachments or
+use WinePatchesMLSubmit.pl.
+
+Of course you can also check the test results by hand and the commit
+message should help you know what to expect.
+
+
+Guidelines
+----------
+
+* All patches should contain 'WTBS' in their subject line.
+
+* The commit message should describe the scenario being tested and how the
+  TestBot is expected to handle it.
+
+* Whenever a patch modifies a Wine test, include a '(test:unit)' string on
+  the subject line to describe the test being patched.
+
+* The test suite contains many patch series and the TestBot also strips
+  the part numbers. So include an 'Sn.p' string in the subject where n
+  is a unique number identifying the patch series and p is the part
+  number within that series. This greatly simplifies identifying the
+  TestBot jobs corresponding to a given patch series.
+
+* In patch series it is important to not only test what should happen, but
+  also what should not happen to make sure the TestBot ony takes into
+  account the relevant parts of the previous parts. So if part 1 modifies
+  a test in kernel32 and part 2 only modifies a test in ntdll, the TestWTBS
+  directives should also verify that the TestBot does not rerun the kernel32
+  test.
+
+* If a test fails because of a known TestBot bug, add BUG:nnn in the
+  subject line where nnn is the corresponding WineHQ bug id. Further add
+  a FIXME line at the start of the commit message describing why the test
+  is impacted by that bug.
+
+* The Wine test failure messages and traces should contain 'WTBS' to
+  simplify grepping.
+
+* Add TestWTBS directives in the commit message to allow automating the
+  tests. See the TestWTBS source for a description of the directives
+  format.
+
+* If special control over the emails that are submitted to the TestBot is
+  necessary (to test attachment support or threading), then put these
+  emails in an mbox-file called wtbs-xxx.mbox at the root of the
+  repository where xxx describes the area being tested. Provide further
+  details about the tests in the emails themselves.
+
+* (wtbs-xxx.mbox) Emails that contain no patch should have NoPatch in
+  their subject line to allow for TestWTBS.
+
+****************************************
+
 1. INTRODUCTION
 
 Wine is a program which allows running Microsoft Windows programs
