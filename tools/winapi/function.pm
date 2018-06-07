@@ -1,4 +1,4 @@
-#
+# WTBS Dummy patch
 # Copyright 1999, 2000, 2001 Patrik Stridvall
 #
 # This library is free software; you can redistribute it and/or
