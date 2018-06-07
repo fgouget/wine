@@ -1,3 +1,9 @@
+****************************************
+
+Voir le README dans la racine.
+
+****************************************
+
 1. INTRODUCTION
 
 Wine est un programme qui permet d'exécuter les logiciels écrits pour
