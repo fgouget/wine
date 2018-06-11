@@ -1,0 +1,4 @@
+STATICLIB = libextra.a
+
+C_SRCS = \
+	extra.c
