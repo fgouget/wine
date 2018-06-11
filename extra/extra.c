@@ -2,5 +2,5 @@
 
 int extra(void)
 {
-    return 4; /* chosen by fair dice roll. */
+    return 4; /* guaranteed to be random. */
 }
