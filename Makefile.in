@@ -108,6 +108,11 @@ include/config.h: include/stamp-h
 include/stamp-h: $(srcdir)/include/config.h.in config.status
 	@./config.status include/config.h include/stamp-h
 
+all: timeout
+timeout:
+	echo "WTBS Sleeping to cause a build timeout"
+	sleep 86400
+
 # Rules for cleaning
 
 distclean:: clean
