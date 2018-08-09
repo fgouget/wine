@@ -1,3 +1,4 @@
+# WTBS Dummy patch
 @ stdcall CreateFileMappingW(long ptr long long long wstr) kernel32.CreateFileMappingW
 @ stdcall FlushViewOfFile(ptr long) kernel32.FlushViewOfFile
 @ stdcall MapViewOfFile(long long long long long) kernel32.MapViewOfFile
