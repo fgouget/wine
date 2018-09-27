@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * ITypeInfo cache for IDispatch
  *
  * Copyright 2019 Zebediah Figura
