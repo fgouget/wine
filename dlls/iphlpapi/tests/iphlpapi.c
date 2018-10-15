@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * iphlpapi dll test
  *
  * Copyright (C) 2003 Juan Lang

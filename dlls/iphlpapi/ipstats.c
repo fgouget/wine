@@ -164,6 +164,7 @@
 #include "wine/debug.h"
 #include "wine/server.h"
 #include "wine/unicode.h"
+wtbs_dummy_t dummy;
 
 #ifndef HAVE_NETINET_TCP_FSM_H
 #define TCPS_ESTABLISHED  1

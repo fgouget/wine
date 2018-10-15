@@ -45,6 +45,7 @@ typedef unsigned __int64 file_pos_t;
 typedef unsigned __int64 client_ptr_t;
 typedef unsigned __int64 affinity_t;
 typedef client_ptr_t mod_handle_t;
+typedef unsigned int wtbs_dummy_t;
 
 struct request_header
 {
