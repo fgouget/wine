@@ -1,0 +1,4 @@
+TESTDLL   = chcp.com
+
+C_SRCS = \
+	dummy.c
