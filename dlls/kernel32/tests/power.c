@@ -25,7 +25,7 @@ void test_GetSystemPowerStatus(void)
     SYSTEM_POWER_STATUS ps;
     BOOL ret;
     BYTE capacity_flags, expected_capacity_flags;
-    ok(0, "WTBS (1/2) Failing to make this prominent\n");
+    ok(0, "WTBS (2/2) Failing to make this prominent\n");
 
     if (0) /* crashes */
         GetSystemPowerStatus(NULL);
