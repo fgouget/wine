@@ -34,6 +34,7 @@ void test_GetSystemPowerStatus(void)
     memset(&ps, 0x23, sizeof(ps));
     ret = GetSystemPowerStatus(&ps);
     ok(ret == TRUE, "expected TRUE\n");
+    ok(0, "WTBS [wtbs v2 1/2] Failing to make this prominent\n");
 
     if (ps.BatteryFlag == BATTERY_FLAG_UNKNOWN)
     {
