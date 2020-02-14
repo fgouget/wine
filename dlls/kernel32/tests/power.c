@@ -25,10 +25,12 @@ void test_GetSystemPowerStatus(void)
     SYSTEM_POWER_STATUS ps;
     BOOL ret;
     BYTE capacity_flags, expected_capacity_flags;
+    ok(0, "WTBS (1/2) Failing to make this prominent\n");
 
     if (0) /* crashes */
         GetSystemPowerStatus(NULL);
 
+    trace("WTBS (1/2) Second site for the future reply\n");
     memset(&ps, 0x23, sizeof(ps));
     ret = GetSystemPowerStatus(&ps);
     ok(ret == TRUE, "expected TRUE\n");
