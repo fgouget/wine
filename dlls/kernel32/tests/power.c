@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit tests for power management functions
  *
  * Copyright (c) 2019 Alex Henrie
