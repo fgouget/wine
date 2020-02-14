@@ -79,6 +79,7 @@ void test_GetSystemPowerStatus(void)
         ok(ps.BatteryFullLifeTime == BATTERY_LIFE_UNKNOWN,
            "expected BatteryFullLifeTime to be -1, got %u\n", ps.BatteryFullLifeTime);
     }
+    ok(0, "WTBS [1/2 v1] Failing to make this prominent\n");
 }
 
 START_TEST(power)
