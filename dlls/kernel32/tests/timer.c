@@ -238,6 +238,43 @@ static void test_timeouts(void)
 
 START_TEST(timer)
 {
+    int argc;
+    char **argv;
+
+    argc = winetest_get_mainargs( &argv );
+    if (argc <= 2)
+    {
+        PROCESS_INFORMATION pi;
+        STARTUPINFOA si = { 0 };
+        char cmdline[MAX_PATH];
+        BOOL ret;
+
+        trace("WTBS Test handling of CreateProcess() failure\n");
+        strcpy(cmdline, "\"t:\\NotADir\\NotAFile.exe\"");
+        ret = CreateProcessA(cmdline, cmdline, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+        ok(!ret, "CreateProcess unexpectedly succeeded\n");
+        wait_child_process( pi.hProcess );
+
+        sprintf(cmdline, "\"%s\" %s propagate", argv[0], argv[1]);
+        ret = CreateProcessA(argv[0], cmdline, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+        ok(ret, "Could not create process: %u\n", GetLastError());
+        winetest_wait_child_process( pi.hProcess );
+        CloseHandle(pi.hThread);
+        CloseHandle(pi.hProcess);
+    }
+    else if (strcmp(argv[2], "propagate") == 0)
+    {
+        trace("WTBS Test the propagation of child process errors\n");
+        ok(1, "WTBS A successful test\n");
+        ok(0, "WTBS A test failure\n");
+        todo_if(0) ok(1, "WTBS A not-todo successful test\n");
+        todo_if(0) ok(0, "WTBS A not-todo test failure\n");
+        todo_if(1) ok(0, "WTBS A todo test failing as expected\n");
+        todo_if(1) ok(1, "WTBS A todo test unexpectedly succeeding\n");
+        skip("WTBS A plain skip\n");
+        win_skip("WTBS A Windows-specific skip\n");
+    }
+    if (0)
     test_timer();
     test_timeouts();
 }
