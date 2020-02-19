@@ -233,6 +233,20 @@ static void test_drvCommConfigDialogW(void)
     ok( res == ERROR_INVALID_PARAMETER,
         "returned %u with %u (expected ERROR_INVALID_PARAMETER)\n",
         res, GetLastError());
+
+    trace("\nWTBS Testing messages that start with a linefeed\n");
+    ok(1, "\nWTBS A successful test\n");
+    ok(0, "\nWTBS A test failure\n");
+    todo_if(0) ok(1, "\nWTBS A not-todo successful test\n");
+    todo_if(0) ok(0, "\nWTBS A not-todo test failure\n");
+    todo_if(1) ok(0, "\nWTBS A todo test failing as expected\n");
+    todo_if(1) ok(1, "\nWTBS A todo test unexpectedly succeeding\n");
+    skip("\nWTBS A plain skip\n");
+
+    trace("WTBS Windows / Wine behavior differences\n");
+    todo_wine ok(0, "\nWTBS A Wine-only todo test failing on all platforms\n");
+    todo_wine ok(1, "\nWTBS A Wine-only todo test succeeding on all platforms\n");
+    win_skip("\nWTBS A skip which is only acceptable on Windows\n");
 }
 
 
