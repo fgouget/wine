@@ -332,5 +332,32 @@ todo_wine
 
 START_TEST(mailslot)
 {
+    int argc;
+    char **argv;
+
+    argc = winetest_get_mainargs( &argv );
+    if (argc <= 2)
+    {
+        PROCESS_INFORMATION pi;
+        STARTUPINFOA si = { 0 };
+        char cmdline[MAX_PATH];
+        BOOL ret;
+
+        trace("WTBS Test handling of timeout in child processes\n");
+        sprintf(cmdline, "\"%s\" %s timeout", argv[0], argv[1]);
+        ret = CreateProcessA(argv[0], cmdline, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+        ok(ret, "Could not create process: %u\n", GetLastError());
+        wait_child_process( pi.hProcess );
+        CloseHandle(pi.hThread);
+        CloseHandle(pi.hProcess);
+    }
+    else if (strcmp(argv[2], "timeout") == 0)
+    {
+        DWORD pid = GetCurrentProcessId();
+        trace("WTBS Sleeping in the %04x child process\n", pid);
+        Sleep(5 * 60 * 1000);
+        trace("WTBS Done sleeping in the %04x child process\n", pid);
+    }
+    if (0)
     mailslot_test();
 }
