@@ -453,6 +453,33 @@ START_TEST(toolhelp)
     DWORD               w;
     HANDLE              hkernel32 = GetModuleHandleA("kernel32");
     HANDLE              hntdll = GetModuleHandleA("ntdll.dll");
+    int argc;
+    char **argv;
+
+    argc = winetest_get_mainargs( &argv );
+    if (argc <= 2)
+    {
+        PROCESS_INFORMATION pi;
+        STARTUPINFOA si = { 0 };
+        char cmdline[MAX_PATH];
+        BOOL ret;
+
+        trace("WTBS Test handling of crashes in child processes\n");
+        sprintf(cmdline, "\"%s\" %s crash", argv[0], argv[1]);
+        ret = CreateProcessA(argv[0], cmdline, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+        ok(ret, "Could not create process: %u\n", GetLastError());
+        wait_child_process(pi.hProcess);
+        CloseHandle(pi.hThread);
+        CloseHandle(pi.hProcess);
+    }
+    else if (strcmp(argv[2], "crash") == 0)
+    {
+        int *p = NULL;
+        trace("Preparing to crash in the %04x child process\n", GetCurrentProcessId());
+        trace("Don't report errors in the child process to see if the TestBot reports the inconsistency between the lack of failure lines and the parent summary line\n");
+        *p = 1;
+    }
+    if (1) return;
 
     pCreateToolhelp32Snapshot = (VOID *) GetProcAddress(hkernel32, "CreateToolhelp32Snapshot");
     pModule32First = (VOID *) GetProcAddress(hkernel32, "Module32First");
