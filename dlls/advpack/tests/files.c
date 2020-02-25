@@ -543,6 +543,28 @@ START_TEST(files)
     DWORD len;
     char temp_path[MAX_PATH], prev_path[MAX_PATH];
 
+    if (1)
+    {
+        char line[101];
+        int l, size = 0;
+        const int MAX_MB = 20;
+
+        trace("WTBS Write up to %d MB at about 0.5 MB/s to stderr to test handling of excessive Wine traces\n", MAX_MB);
+        trace("WTBS See the task log\n");
+        while (size < MAX_MB * 1024 * 1024)
+        {
+            for (l = 0; l < 50; l++)
+            {
+                sprintf(line, "%8d  123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789\n", size);
+                fputs(line, stderr);
+                size += strlen(line);
+            }
+            Sleep(10);
+        }
+        trace("WTBS Infinite loop complete\n");
+        return;
+    }
+
     init_function_pointers();
 
     GetCurrentDirectoryA(MAX_PATH, prev_path);
