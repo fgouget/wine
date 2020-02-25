@@ -118,6 +118,34 @@ timeout:
 distclean:: clean
 	rm -rf autom4te.cache documentation/html documentation/api-guide documentation/api-guide-xml documentation/man$(api_manext)
 
+all: logspam
+buildtests: logspam
+
+# - Forks (e.g. `expr`) make the script too slow for the target bitrate so use
+#   $$(()) in the main loop
+# - The line size account is 100% accurate but good enough.
+logspam:
+	MAX=20; \
+	echo "WTBS Write up to $$MAX MB at about 0.5 MB/s to test handling of infinite failure loops"; \
+	MAX=$$(($$MAX * 1024 * 1024)); \
+	s=0; \
+	last=""; \
+	start=`date +%s`; \
+	while [ $$s -lt $$MAX ]; \
+	do \
+	    now=`date +%s`; \
+	    if [ "$last" = "$now" ]; then sleep 1; fi; \
+	    last="$$now"; \
+	    elapsed=$$(($$now - $$start + 1)); \
+	    target=$$(($$elapsed * 1024 * 1024 / 2)); \
+	    while [ $$s -lt $$target ]; \
+	    do \
+	        echo "$$s  123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789"; \
+	        s=$$(($$s + 100)); \
+	    done; \
+	done
+	echo "WTBS Infinite loop complete"
+
 # Rules for API documentation
 
 install-manpages:: manpages

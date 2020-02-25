@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit tests for crypt functions
  *
  * Copyright (c) 2004 Michael Jung
