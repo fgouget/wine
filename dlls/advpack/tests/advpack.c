@@ -663,6 +663,31 @@ static void setperusersecvalues_test(void)
 
 START_TEST(advpack)
 {
+    if (1)
+    {
+        char line[101];
+        int l, size = 0;
+        const int MAX_MB = 20;
+
+        /* Cancel wine/test.h's _IONBF for a 10x speedup */
+        static char buffer[4096];
+        setvbuf(stdout, buffer, _IOLBF, sizeof(buffer));
+
+        trace("WTBS Write up to %d MB at about 0.5 MB/s to test handling of infinite failure loops\n", MAX_MB);
+        while (size < MAX_MB * 1024 * 1024)
+        {
+            for (l = 0; l < 50; l++)
+            {
+                sprintf(line, "%8d  123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789\n", size);
+                puts(line);
+                size += strlen(line);
+            }
+            Sleep(10);
+        }
+        trace("WTBS Infinite loop complete\n");
+        return;
+    }
+
     if (!init_function_pointers())
         return;
 
