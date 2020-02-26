@@ -216,4 +216,22 @@ START_TEST(sysinfo)
     test_sysinfo();
 
     CoUninitialize();
+    if (strcmp(winetest_platform, "windows"))
+    {
+        const char* keypath = "Software\\WTBS";
+        char buffer[256];
+        LONG size;
+        LSTATUS ret;
+
+        trace("WTBS Checking the presence of the WTBS registration key\n");
+        size = sizeof(buffer);
+        ret = RegQueryValueA(HKEY_LOCAL_MACHINE, keypath, buffer, &size);
+        if (ret != ERROR_SUCCESS)
+            ok(0, "WTBS Could not get the WTBS registry value: %u\n", ret);
+        else
+            ok(strcmp(buffer, "Hello WTBS") == 0,
+               "WTBS Got an unexpected value [%s]\n", buffer);
+    }
+    else
+        win_skip("WTBS Not checking for the WTBS registration key on Windows\n");
 }

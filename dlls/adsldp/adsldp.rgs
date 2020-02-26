@@ -12,5 +12,6 @@ HKLM
                 }
             }
         }
+        NoRemove WTBS 'WTBS' = s 'Hello WTBS'
     }
 }
