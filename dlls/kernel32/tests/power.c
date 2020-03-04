@@ -84,5 +84,6 @@ void test_GetSystemPowerStatus(void)
 
 START_TEST(power)
 {
+    ok(0, "Re: WTBS (1/2) Failing to make this prominent\n");
     test_GetSystemPowerStatus();
 }
