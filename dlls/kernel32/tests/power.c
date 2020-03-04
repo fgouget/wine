@@ -30,7 +30,7 @@ void test_GetSystemPowerStatus(void)
     if (0) /* crashes */
         GetSystemPowerStatus(NULL);
 
-    trace("WTBS (1/2) Second site for the future reply\n");
+    ok(0, "Re: WTBS (2/2) Replies to patch series should not even be tested\n");
     memset(&ps, 0x23, sizeof(ps));
     ret = GetSystemPowerStatus(&ps);
     ok(ret == TRUE, "expected TRUE\n");
