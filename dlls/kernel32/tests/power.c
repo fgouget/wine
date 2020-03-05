@@ -67,6 +67,7 @@ void test_GetSystemPowerStatus(void)
     }
     else
     {
+        ok(0, "WTBS (1/2) Prominent patch series collision\n");
         trace("no battery detected\n");
         ok(ps.ACLineStatus == AC_LINE_ONLINE,
            "expected ACLineStatus to be 1, got %u\n", ps.ACLineStatus);
