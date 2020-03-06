@@ -1,0 +1,594 @@
+From wine-devel-bounces@winehq.org Fri Mar 06 03:07:57 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 03:07:57 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [0/4] WTBS qcap: Threaded patch series with a cover email (NoPatch)
+Date: Thu,  5 Mar 2020 20:04:33 -0600
+Message-Id: <20200306020437.11231-0>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+****************
+* This is a set of fake patch series to test how the TestBot handles them.
+* - wined3d is a regular threaded patch series.
+* - qcap is threaded to a cover email.
+* - d3d9 is not threaded.
+*
+* Note that parts 2 and greater will result in a badpatch error on purpose
+* to minimize the TestBot processing.
+*
+* To run the test suite, submit the mbox to the WineTestBot
+* as follows:
+*
+* formail -ds tools/testbot/bin/WinePatchesMLSubmit.pl <patch-series.mbox
+*
+* For information on In-Reply-To vs. References:
+* https://cr.yp.to/immhf/thread.html
+****************
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 12:39:21 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 12:39:21 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 1/4] WTBS d3d9: Unthreaded patch series part one
+Date: Fri,  6 Mar 2020 12:33:12 +0100
+Message-Id: <20200306113316.2507858-1>
+X-Mailer: git-send-email 2.24.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p tests.TestUnits d3d9:device
+p job.Remarks WTBS d3d9: Unthreaded patch series part one
+
+a patch.Grep WTBS d3d9 1/4
+a patch.GrepV WTBS d3d9 [234]/4
+a patch.GrepV WTBS (qcap|wined3d)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/d3d9/tests/device.c b/dlls/d3d9/tests/device.c
+index 8c1ebc1719c..80c59197439 100644
+--- a/dlls/d3d9/tests/device.c
++++ b/dlls/d3d9/tests/device.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS d3d9 1/4
+  * Copyright (C) 2006 Ivan Gyurdiev
+  * Copyright (C) 2006 Vitaliy Margolen
+  * Copyright (C) 2006 Chris Robinson
+--
+2.24.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 02:37:52 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 02:37:52 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 1/4] WTBS wined3d: Threaded patch series part one
+Date: Thu,  5 Mar 2020 19:28:07 -0600
+Message-Id: <20200306012811.137094-1>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p job.Remarks WTBS wined3d: Threaded patch series part one
+p build.HasTask 0
+p win.HasTask 0
+
+a patch.Grep WTBS wined3d 1/4
+a patch.GrepV WTBS wined3d [234]/4
+a patch.GrepV WTBS alternative wined3d 1/4
+a patch.GrepV WTBS (d3d9|qcap)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/wined3d/context.c b/dlls/wined3d/context.c
+index 0f8838846a0..e8a079607bc 100644
+--- a/dlls/wined3d/context.c
++++ b/dlls/wined3d/context.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS wined3d 1/4
+  * Context and render target management in wined3d
+  *
+  * Copyright 2002-2004 Jason Edmeades
+--
+2.25.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 17:42:08 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 17:42:08 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: Re: [PATCH 1/4] WTBS wined3d: Reply with an alternative patch
+References: <20200306012811.137094-1>
+In-Reply-To: <20200306012811.137094-1>
+Date: Fri, 6 Mar 2020 20:02:04 +0330
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <E1jAFtM-0006ZR-TR>
+
+Here's a proposed alternative to this patch.
+----- TestWTBS -----
+p job.Remarks WTBS wined3d: Reply with an alternative patch
+p build.HasTask 0
+p win.HasTask 0
+
+a patch.Grep WTBS alternative wined3d 1/4
+a patch.GrepV WTBS wined3d [1234]/4
+a patch.GrepV WTBS (d3d9|qcap)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/wined3d/context.c b/dlls/wined3d/context.c
+index 0f8838846a0..e8a079607bc 100644
+--- a/dlls/wined3d/context.c
++++ b/dlls/wined3d/context.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS alternative wined3d 1/4
+  * Context and render target management in wined3d
+  *
+  * Copyright 2002-2004 Jason Edmeades
+--
+2.25.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 03:07:57 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 03:07:57 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 1/4] WTBS qcap: Cover part one
+Date: Thu,  5 Mar 2020 20:04:33 -0600
+Message-Id: <20200306020437.11231-1>
+In-Reply-To: <20200306020437.11231-0>
+References: <20200306020437.11231-0>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p job.Remarks WTBS qcap: Cover part one
+p tests.TestUnits qcap:avimux
+
+a patch.Grep WTBS qcap 1/4
+a patch.GrepV WTBS qcap [234]/4
+a patch.GrepV WTBS (d3d9|wined3d)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/qcap/tests/avimux.c b/dlls/qcap/tests/avimux.c
+index 572314f8ab3..311c0122075 100644
+--- a/dlls/qcap/tests/avimux.c
++++ b/dlls/qcap/tests/avimux.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS qcap 1/4
+  * AVI muxer filter unit tests
+  *
+  * Copyright 2018 Zebediah Figura
+--
+2.25.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 02:37:52 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 02:37:52 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 2/4] WTBS wined3d: Threaded part two
+Date: Thu,  5 Mar 2020 19:28:08 -0600
+Message-Id: <20200306012811.137094-2>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200306012811.137094-1>
+References: <20200306012811.137094-1>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p job.Remarks WTBS wined3d: Threaded part two
+p job.Status badpatch
+p wine.Status badpatch
+p build.HasTask 0
+p win.HasTask 0
+
+a patch.Grep WTBS wined3d 1/4
+a patch.Grep WTBS wined3d 2/4
+a patch.GrepV WTBS wined3d [34]/4
+a patch.GrepV WTBS alternative wined3d 1/4
+a patch.GrepV WTBS (d3d9|qcap)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/wined3d/context.c b/dlls/wined3d/context.c
+index 0f8838846a0..e8a079607bc 100644
+--- a/dlls/wined3d/context.c
++++ b/dlls/wined3d/context.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS wined3d 2/4
+  * Context and render target management in wined3d
+  *
+  * Copyright 2002-2004 Jason Edmeades
+--
+2.25.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 03:07:58 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 03:07:58 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 4/4] WTBS qcap: Cover part four
+Date: Thu,  5 Mar 2020 20:04:36 -0600
+Message-Id: <20200306020437.11231-4>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200306020437.11231-0>
+References: <20200306020437.11231-0>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p tests.TestUnits qcap:avimux
+p job.Remarks WTBS qcap: Cover part four
+p job.Status badpatch
+p build.Status badpatch
+p wine.Status badpatch
+p win.Status skipped
+
+a patch.Grep WTBS qcap 1/4
+a patch.Grep WTBS qcap 2/4
+a patch.Grep WTBS qcap 3/4
+a patch.Grep WTBS qcap 4/4
+a patch.GrepV WTBS (d3d9|wined3d)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/qcap/tests/avimux.c b/dlls/qcap/tests/avimux.c
+index 572314f8ab3..311c0122075 100644
+--- a/dlls/qcap/tests/avimux.c
++++ b/dlls/qcap/tests/avimux.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS qcap 4/4
+  * AVI muxer filter unit tests
+  *
+  * Copyright 2018 Zebediah Figura
+--
+2.25.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 12:39:21 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 12:39:21 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 4/4] WTBS d3d9: Unthreaded part four
+Date: Fri,  6 Mar 2020 12:33:15 +0100
+Message-Id: <20200306113316.2507858-4>
+X-Mailer: git-send-email 2.24.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p tests.TestUnits d3d9:device
+p job.Remarks WTBS d3d9: Unthreaded part four
+p job.Status badpatch
+p build.Status badpatch
+p wine.Status badpatch
+p win.Status skipped
+
+a patch.Grep WTBS d3d9 1/4
+a patch.Grep WTBS d3d9 2/4
+a patch.Grep WTBS d3d9 3/4
+a patch.Grep WTBS d3d9 4/4
+a patch.GrepV WTBS (qcap|wined3d)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/d3d9/tests/device.c b/dlls/d3d9/tests/device.c
+index 8c1ebc1719c..80c59197439 100644
+--- a/dlls/d3d9/tests/device.c
++++ b/dlls/d3d9/tests/device.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS d3d9 4/4
+  * Copyright (C) 2006 Ivan Gyurdiev
+  * Copyright (C) 2006 Vitaliy Margolen
+  * Copyright (C) 2006 Chris Robinson
+--
+2.24.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 03:07:58 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 03:07:58 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 2/4] WTBS qcap: Cover part two
+Date: Thu,  5 Mar 2020 20:04:34 -0600
+Message-Id: <20200306020437.11231-2>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200306020437.11231-0>
+References: <20200306020437.11231-0>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p tests.TestUnits qcap:avimux
+p job.Remarks WTBS qcap: Cover part two
+p job.Status badpatch
+p build.Status badpatch
+p wine.Status badpatch
+p win.Status skipped
+
+a patch.Grep WTBS qcap 1/4
+a patch.Grep WTBS qcap 2/4
+a patch.GrepV WTBS qcap [34]/4
+a patch.GrepV WTBS (d3d9|wined3d)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/qcap/tests/avimux.c b/dlls/qcap/tests/avimux.c
+index 572314f8ab3..311c0122075 100644
+--- a/dlls/qcap/tests/avimux.c
++++ b/dlls/qcap/tests/avimux.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS qcap 2/4
+  * AVI muxer filter unit tests
+  *
+  * Copyright 2018 Zebediah Figura
+--
+2.25.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 02:37:52 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 02:37:52 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 3/4] WTBS wined3d: Threaded part three
+Date: Thu,  5 Mar 2020 19:28:09 -0600
+Message-Id: <20200306012811.137094-3>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200306012811.137094-1>
+References: <20200306012811.137094-1>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p job.Remarks WTBS wined3d: Threaded part three
+p job.Status badpatch
+p wine.Status badpatch
+p build.HasTask 0
+p win.HasTask 0
+
+a patch.Grep WTBS wined3d 1/4
+a patch.Grep WTBS wined3d 2/4
+a patch.Grep WTBS wined3d 3/4
+a patch.GrepV WTBS wined3d 4/4
+a patch.GrepV WTBS alternative wined3d 1/4
+a patch.GrepV WTBS (d3d9|qcap)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/wined3d/context.c b/dlls/wined3d/context.c
+index 0f8838846a0..e8a079607bc 100644
+--- a/dlls/wined3d/context.c
++++ b/dlls/wined3d/context.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS wined3d 3/4
+  * Context and render target management in wined3d
+  *
+  * Copyright 2002-2004 Jason Edmeades
+--
+2.25.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 03:53:04 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 03:53:04 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 4/4] WTBS wined3d: Threaded part four
+Date: Thu,  5 Mar 2020 19:28:10 -0600
+Message-Id: <20200306012811.137094-4>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200306012811.137094-1>
+References: <20200306012811.137094-1>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p job.Remarks WTBS wined3d: Threaded part four
+p job.Status badpatch
+p wine.Status badpatch
+p build.HasTask 0
+p win.HasTask 0
+
+a patch.Grep WTBS wined3d 1/4
+a patch.Grep WTBS wined3d 2/4
+a patch.Grep WTBS wined3d 3/4
+a patch.Grep WTBS wined3d 4/4
+a patch.GrepV WTBS alternative wined3d 1/4
+a patch.GrepV WTBS (d3d9|qcap)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/wined3d/context.c b/dlls/wined3d/context.c
+index 0f8838846a0..e8a079607bc 100644
+--- a/dlls/wined3d/context.c
++++ b/dlls/wined3d/context.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS wined3d 4/4
+  * Context and render target management in wined3d
+  *
+  * Copyright 2002-2004 Jason Edmeades
+--
+2.25.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 12:39:21 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 12:39:21 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 3/4] WTBS d3d9: Unthreaded part three
+Date: Fri,  6 Mar 2020 12:33:14 +0100
+Message-Id: <20200306113316.2507858-3>
+X-Mailer: git-send-email 2.24.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p tests.TestUnits d3d9:device
+p job.Remarks WTBS d3d9: Unthreaded part three
+p job.Status badpatch
+p build.Status badpatch
+p wine.Status badpatch
+p win.Status skipped
+
+a patch.Grep WTBS d3d9 1/4
+a patch.Grep WTBS d3d9 2/4
+a patch.Grep WTBS d3d9 3/4
+a patch.GrepV WTBS d3d9 4/4
+a patch.GrepV WTBS (qcap|wined3d)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/d3d9/tests/device.c b/dlls/d3d9/tests/device.c
+index 8c1ebc1719c..80c59197439 100644
+--- a/dlls/d3d9/tests/device.c
++++ b/dlls/d3d9/tests/device.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS d3d9 3/4
+  * Copyright (C) 2006 Ivan Gyurdiev
+  * Copyright (C) 2006 Vitaliy Margolen
+  * Copyright (C) 2006 Chris Robinson
+--
+2.24.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 12:39:22 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 12:39:22 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 2/4] WTBS d3d9: Unthreaded part two
+Date: Fri,  6 Mar 2020 12:33:13 +0100
+Message-Id: <20200306113316.2507858-2>
+X-Mailer: git-send-email 2.24.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p tests.TestUnits d3d9:device
+p job.Remarks WTBS d3d9: Unthreaded part two
+p job.Status badpatch
+p build.Status badpatch
+p wine.Status badpatch
+p win.Status skipped
+
+a patch.Grep WTBS d3d9 1/4
+a patch.Grep WTBS d3d9 2/4
+a patch.GrepV WTBS d3d9 [34]/4
+a patch.GrepV WTBS (qcap|wined3d)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/d3d9/tests/device.c b/dlls/d3d9/tests/device.c
+index 8c1ebc1719c..80c59197439 100644
+--- a/dlls/d3d9/tests/device.c
++++ b/dlls/d3d9/tests/device.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS d3d9 2/4
+  * Copyright (C) 2006 Ivan Gyurdiev
+  * Copyright (C) 2006 Vitaliy Margolen
+  * Copyright (C) 2006 Chris Robinson
+--
+2.24.1
+
+
+
+From wine-devel-bounces@winehq.org Fri Mar 06 03:07:58 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Fri, 06 Mar 2020 03:07:58 +0100
+From: Serial Patcher <serial.patcher@winehq.org>
+To: wine-devel@winehq.org
+Subject: [PATCH 3/4] WTBS qcap: Cover part three
+Date: Thu,  5 Mar 2020 20:04:35 -0600
+Message-Id: <20200306020437.11231-3>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200306020437.11231-0>
+References: <20200306020437.11231-0>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+----- TestWTBS -----
+p tests.TestUnits qcap:avimux
+p job.Remarks WTBS qcap: Cover part three
+p job.Status badpatch
+p build.Status badpatch
+p wine.Status badpatch
+p win.Status skipped
+
+a patch.Grep WTBS qcap 1/4
+a patch.Grep WTBS qcap 2/4
+a patch.Grep WTBS qcap 3/4
+a patch.GrepV WTBS qcap 4/4
+a patch.GrepV WTBS (d3d9|wined3d)
+----- TestWTBS -----
+---
+
+diff --git a/dlls/qcap/tests/avimux.c b/dlls/qcap/tests/avimux.c
+index 572314f8ab3..311c0122075 100644
+--- a/dlls/qcap/tests/avimux.c
++++ b/dlls/qcap/tests/avimux.c
+@@ -1,4 +1,4 @@
+-/*
++/* WTBS qcap 3/4
+  * AVI muxer filter unit tests
+  *
+  * Copyright 2018 Zebediah Figura
+--
+2.25.1
