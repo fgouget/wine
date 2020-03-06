@@ -261,6 +261,7 @@ static void test_launch_app_registry(void)
 
 START_TEST(sti)
 {
+    ok(0, "WTBS Trigger a 'new failure' email containing diacritics: àéïôÿ\n");
     if (SUCCEEDED(CoInitialize(NULL)))
     {
         if (init_function_pointers())
