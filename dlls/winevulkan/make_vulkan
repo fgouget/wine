@@ -61,6 +61,7 @@ from enum import Enum
 #   Array length is often stored in a previous parameter or another structure
 #   member and thus needs careful parsing.
 
+print("WTBS make_vulkan was here!")
 LOGGER = logging.Logger("vulkan")
 LOGGER.addHandler(logging.StreamHandler())
 
