@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Some tests for OpenGL functions
  *
  * Copyright (C) 2007-2008 Roderick Colenbrander
