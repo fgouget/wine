@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit test suite for object manager functions
  *
  * Copyright 2005 Robert Shearman

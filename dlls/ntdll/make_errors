@@ -1665,6 +1665,7 @@ static ULONG map_status( NTSTATUS status )
 EOF
 }
 
+print "WTBS make_errors was here!\n";
 chdir "../.." if -f "./make_errors";
 
 read_status( "include/ntstatus.h" );
