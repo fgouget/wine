@@ -20,6 +20,7 @@
 
 use strict;
 use Math::Trig;
+print STDERR "WTBS make_fir was here!\n";
 
 # This program generates an array of Finite Impulse Response (FIR) filter
 # values for use in resampling audio.

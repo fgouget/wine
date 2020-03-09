@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit tests for CLSID_DirectSoundPrivate property set functions
  * (used by dxdiag)
  *
