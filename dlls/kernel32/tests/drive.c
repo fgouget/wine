@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Unit test suite for drive functions.
  *
  * Copyright 2002 Dmitry Timoshkov

@@ -2806,6 +2806,7 @@ sub save_file($)
 # main routine
 
 chdir ".." if -f "./make_unicode";
+print "WTBS make_unicode was here!\n";
 load_data();
 dump_sortkeys( "dlls/kernelbase/collation.c" );
 dump_bidi_dir_table( "dlls/gdi32/uniscribe/direction.c" );
