@@ -3553,6 +3553,13 @@ START_TEST(actctx)
     int argc;
     char **argv;
 
+    if (1)
+    {
+        printf("atom.c:%d: Test failed: WTBS Misplaced test failure\n", __LINE__);
+        printf("atom.c:%d: Test failed: WTBS Make sure the error about misplaced\n", __LINE__);
+        printf("atom.c:%d: Test failed: WTBS ...failures is reported only once\n", __LINE__);
+        return;
+    }
     argc = winetest_get_mainargs(&argv);
 
     if (!init_funcs())
