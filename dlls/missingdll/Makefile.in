@@ -1,0 +1,5 @@
+MODULE    = missingdll.dll
+IMPORTLIB = missingdll
+
+C_SRCS = \
+	missingdll.c
