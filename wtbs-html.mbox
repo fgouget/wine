@@ -1,0 +1,62 @@
+From wine-devel-bounces@winehq.org Mon Mar 23 02:20:06 2020
+Return-path: <wine-devel-bounces@winehq.org>
+Envelope-to: fgouget@localhost
+Delivery-date: Mon, 23 Mar 2020 02:20:06 +0100
+MIME-Version: 1.0
+From: HTML Patcher <html.patcher@winehq.org>
+Date: Sun, 22 Mar 2020 20:14:21 -0500
+Message-ID: <6rXkpSCAPX7N8GrTcRLWB>
+Subject: WTBS Patch-like lines in an HTML attachment (NotPatch)
+To: wine-devel@winehq.org
+List-Id: Wine Developer's List <wine-devel.winehq.org>
+Content-Type: multipart/alternative; boundary="0000000000008d189a05a17b5b1a"
+
+--0000000000008d189a05a17b5b1a
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+On Mar 22 <submitter@winehq.org> wrote:
+
+> diff --git a/dlls/gdiplus/tests/font.c b/dlls/gdiplus/tests/font.c
+> index 9abb80faaf5..7f4b1e876e5 100644
+> --- a/dlls/gdiplus/tests/font.c
+> +++ b/dlls/gdiplus/tests/font.c
+> @@ -808,29 +808,21 @@ static void test_font_metrics(void)
+>
+>  static void test_font_substitution(void)
+>  {
+> -    WCHAR ms_shell_dlg[LF_FACESIZE];
+> +    const WCHAR ms_shell_dlg[] =3D {'M','S',' ','S','h','e','l','l','
+> ','D','l','g',0};
+
+The above text is quoted and thus will be ignored by the TestBot because
+it does not look like a patch.
+
+
+--0000000000008d189a05a17b5b1a
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><div><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" =
+class=3D"gmail_attr">On Mar 22 &lt;<a href=3D"mail=
+to:submitter@winehq.org" rel=3D"noreferrer noreferrer noreferrer" target=
+=3D"_blank">submitter@winehq.org</a>&gt; wrote:<br></div><blockquote cla=
+ss=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;pa=
+dding-left:1ex">
+<br>
+diff --git a/dlls/gdiplus/tests/font.c b/dlls/gdiplus/tests/font.c<br>
+index 9abb80faaf5..7f4b1e876e5 100644<br>
+--- a/dlls/gdiplus/tests/font.c<br>
++++ b/dlls/gdiplus/tests/font.c<br>
+@@ -808,29 +808,21 @@ static void test_font_metrics(void)<br>
+<br>
+=C2=A0static void test_font_substitution(void)<br>
+=C2=A0{<br>
+-=C2=A0 =C2=A0 WCHAR ms_shell_dlg[LF_FACESIZE];<br>
++=C2=A0 =C2=A0 const WCHAR ms_shell_dlg[] =3D {&#39;M&#39;,&#39;S&#39;,&#39=
+; &#39;,&#39;S&#39;,&#39;h&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39; &=
+#39;,&#39;D&#39;,&#39;l&#39;,&#39;g&#39;,0};</blockquote></div></div><div d=
+ir=3D"auto"><br></div><div dir=3D"auto">But this part will look like a patc=
+h because the --- and +++ lines are intact.</div></div>
+
+--0000000000008d189a05a17b5b1a--
