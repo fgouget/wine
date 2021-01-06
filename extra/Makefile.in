@@ -2,3 +2,5 @@ STATICLIB = libextra.a
 
 C_SRCS = \
 	extra.c
+
+# WTBS Dummy patch
