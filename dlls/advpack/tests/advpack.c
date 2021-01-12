@@ -681,4 +681,36 @@ START_TEST(advpack)
     translateinfstringex_test();
 
     FreeLibrary(hAdvPack);
+
+    if (1)
+    {
+        trace("WTBS Garble 1");
+        trace("WTBS A sample trace\n");
+        trace("WTBS Garble 2");
+        ok(1, "WTBS A successful test\n");
+        trace("WTBS Garble 3");
+        ok(0, "WTBS A test failure\n");
+        trace("WTBS Garble 4");
+        todo_if(0) ok(1, "WTBS A not-todo successful test\n");
+        trace("WTBS Garble 5");
+        todo_if(0) ok(0, "WTBS A not-todo test failure\n");
+        trace("WTBS Garble 6");
+        todo_if(1) ok(0, "WTBS A todo test failing as expected\n");
+        trace("WTBS Garble 7");
+        todo_if(1) ok(1, "WTBS A todo test unexpectedly succeeding\n");
+        trace("WTBS Garble 8");
+        skip("WTBS A plain skip\n");
+        trace("Simulate a garbled unhandled exception\n");
+        printf("garble9%04x:advpack: unhandled exception c0000005 at 0040167C\n", GetCurrentProcessId());
+
+        trace("WTBS Garble 10");
+        trace("WTBS Windows / Wine behavior differences\n");
+        trace("WTBS Garble 11");
+        todo_wine ok(0, "WTBS A Wine-only-todo test failing on all platforms\n");
+        trace("WTBS Garble 12");
+        todo_wine ok(1, "WTBS A Wine-only-todo test succeeding on all platforms\n");
+        trace("WTBS Garble 13");
+        win_skip("WTBS A skip which is only acceptable on Windows\n");
+        trace("WTBS Garble the summary line");
+    }
 }
