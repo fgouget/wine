@@ -1,6 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 dnl Original author: Michael Patra
 dnl For detailed change history, see the git commit logs.
+dnl WTBS Dummy patch
 
 m4_define(WINE_VERSION,regexp(m4_include(VERSION),[version \([-.0-9A-Za-z]+\)],[\1]))
 
