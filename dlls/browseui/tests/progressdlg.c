@@ -83,4 +83,16 @@ START_TEST(progressdlg)
     test_IProgressDialog_QueryInterface();
 
     CoUninitialize();
+
+    /* Simulate subtest traces and test failures */
+    subtest("dummy");
+    printf("dummy.c:12: WTBS A sample trace\n");
+    printf("dummy.c:13: Test failed: WTBS A test failure\n");
+    printf("dummy.c:14: Test marked todo: WTBS A todo test failing as expected\n");
+    printf("dummy.c:15: Test succeeded inside todo block: WTBS A todo test unexpectedly succeeding\n");
+    printf("dummy.c:16: Tests skipped: WTBS A plain skip\n");
+
+    printf("Garble garbledummy.c:17: Test failed: WTBS A garbled failure\n");
+
+    winetest_add_failures(3);
 }
