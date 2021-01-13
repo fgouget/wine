@@ -3,7 +3,7 @@ use strict;
 use XML::LibXML;
 
 # This script is called thus :
-#
+# WTBS Dummy patch
 #   make_opengl [opengl_version]
 #
 #     - It needs files from the OpenGL extension registry:

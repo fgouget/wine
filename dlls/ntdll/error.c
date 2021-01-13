@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * NTDLL error handling
  *
  * Copyright 2000 Alexandre Julliard

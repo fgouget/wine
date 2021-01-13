@@ -1,5 +1,5 @@
 #! /usr/bin/perl -w
-#
+# WTBS Dummy patch
 # Build the server/trace.c and server/request.h files
 # from the contents of server/protocol.def.
 #

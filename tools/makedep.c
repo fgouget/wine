@@ -4358,6 +4358,7 @@ int main( int argc, char *argv[] )
         }
         else i++;
     }
+    fprintf(stderr, "WTBS makedep was here!\n");
 
     if (relative_dir_mode)
     {

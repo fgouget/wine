@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-#
+# WTBS Dummy patch
 # Build the auto-generated parts of the Wine makefiles.
 #
 # Copyright 2006 Alexandre Julliard

@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-#
+# WTBS Dummy patch
 # Generate code page .c files from ftp.unicode.org descriptions
 #
 # Copyright 2000 Alexandre Julliard
