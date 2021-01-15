@@ -65,6 +65,7 @@ static void get_progfiles_dir(void)
     APP_PATH_LEN = lstrlenA(APP_PATH) + 1;
 }
 
+/* WTBS Dummy patch */
 static BOOL init_function_pointers(void)
 {
     hAdvPack = LoadLibraryA("advpack.dll");
