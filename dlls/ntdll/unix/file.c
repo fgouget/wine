@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * NTDLL directory and file functions
  *
  * Copyright 1993 Erik Bos
