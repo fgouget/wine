@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Copyright 2019 Erich E. Hoover
  *
  * This library is free software; you can redistribute it and/or
