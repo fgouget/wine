@@ -1,3 +1,82 @@
+****************************************
+
+
+    DO NOT USE FOR WINE DEVELOPMENT
+
+
+This Wine source has been modified to test TestWTBS.
+See the TestWTBS source for more context.
+
+The goal here is limited to checking for false negatives, that is TestWTBS
+checks that should report an error but don't. It is assumed that false
+positives will be found in the process of running TestWTBS on the regular
+Wine TestBot suite (wtbsuite).
+
+
+    IT IS NORMAL FOR THIS BRANCH TO FAIL TO COMPILE
+
+
+Generating the patch files
+--------------------------
+
+The most practical way to run the test suite is to first generate one
+email per commit:
+
+  git format-patch --no-numbered --subject-prefix="" origin/master..
+
+You can also add the --attach option to test attachment support.
+
+
+Submitting the tests to the TestBot
+-----------------------------------
+
+First you should really have your own TestBot instance.
+
+You will need it to automate checking the test suite results and to debug
+any issue anyway. It would also be very rude to submit the whole test suite
+to the official TestBot as it can take quite a long time to run. Finally
+note that the test suite is incompatible with test=all missions but
+test=module is ok.
+
+
+You can submit the main sequence of tests to your TestBot instance at once
+by running one of the following commands in the TestBot account:
+
+  cat *-TestWTBS-*.patch | formail -ds tools/testbot/bin/WinePatchesMLSubmit.pl
+
+or going through the patches website:
+
+  cat >testbot.procmail <<EOF
+UMASK = 0133
+:0 hbfw
+| ${HOME}/tools/patches/filter
+:0:
+${HOME}/tools/testbot/var/webpatches/.
+EOF
+  cat *-TestWTBS-*.patch | formail -ds procmail testbot.procmail
+  tools/testbot/bin/WinePatchesWebSubmit.pl
+
+
+You can also submit a single test with something like:
+
+  formail -ds tools/testbot/bin/WinePatchesMLSubmit.pl <0002-WTBS-*.patch
+
+
+Checking the test suite results
+-------------------------------
+
+The TestBot results can be checked using TestWTBS:
+
+  tools/testbot/tests/TestWTBS
+
+You can restrict the checks to a specific job range with the --jobs option.
+
+You will then need to manually compare the TestWTBS output with the expected
+output as described in the patch's commit message.
+
+
+****************************************
+
 1. INTRODUCTION
 
 Wine is a program which allows running Microsoft Windows programs
