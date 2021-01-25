@@ -74,6 +74,7 @@ static LPCSTR load_functions(void)
 }
 
 /* ################# */
+/* WTBS Dummy patch */
 
 static void test_drvCommConfigDialogA(void)
 {
