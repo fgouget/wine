@@ -409,6 +409,7 @@ static void test_drvGetDefaultCommConfigW(void)
 }
 
 /* ################# */
+/* WTBS Dummy patch */
 
 START_TEST(confdlg)
 {
