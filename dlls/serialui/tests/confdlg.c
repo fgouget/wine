@@ -326,6 +326,7 @@ static void test_drvGetDefaultCommConfigW(void)
     DWORD       len;
 
 
+    /* WTBS Dummy patch */
     /* off by one: one byte smaller */
     i   = sizeof(COMMCONFIG);
     len = sizeof(COMMCONFIG) -1;
