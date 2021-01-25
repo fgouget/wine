@@ -43,6 +43,7 @@ static const CHAR  fmt_comA[]   = "com%d";
 static const CHAR  str_colonA[] = ":";
 
 /* ################# */
+/* WTBS Dummy patch */
 
 static LPCSTR load_functions(void)
 {
