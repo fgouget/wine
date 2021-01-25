@@ -428,5 +428,11 @@ START_TEST(confdlg)
     test_drvCommConfigDialogW();
     test_drvGetDefaultCommConfigA();
     test_drvGetDefaultCommConfigW();
-
+    /* TestWTBS Print a line which will cause the TestBot to report 2 failures:
+     * - One for this failure-looking line in a group expected by TestWTBS.
+     * - One in the Report validation error group because the test's error
+     *   summary did not account for the above line. This one should be
+     *   reported as an unexpected error group by TestWTBS.
+     */
+    printf("confdlg.c:%d: Test failed: TestWTBS extra error\n", __LINE__);
 }
