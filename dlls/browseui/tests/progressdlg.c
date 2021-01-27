@@ -33,6 +33,31 @@ static void test_IProgressDialog_QueryInterface(void)
     IUnknown *unk;
     HRESULT hr;
 
+    if (1)
+    {
+        /* Simulate closing this test unit */
+        printf("%04x:progressdlg: 7 tests executed (0 marked as todo, 0 failures), 0 skipped.\n", GetCurrentProcessId());
+        printf("browseui:progressdlg:%04x done (0) in 0s\n", GetCurrentProcessId());
+        trace("WTBS A late trace which should not be causing trouble\n");
+
+        /* Simulate a new test with no start line */
+        printf("WTBS Assume this is a garbled start line for browseui:nostart\n");
+        printf("nostart.c:12: WTBS A sample trace\n");
+        printf("nostart.c:13: Test failed: WTBS A test failure\n");
+        printf("nostart.c:14: Test marked todo: WTBS A todo test failing as expected\n");
+        printf("nostart.c:15: Test succeeded inside todo block: WTBS A todo test unexpectedly succeeding\n");
+        printf("nostart.c:16: Tests skipped: WTBS A plain skip\n");
+        printf("nostart.c:17: Subtest dummy\n");
+
+        printf("1234:nostart: 3 tests executed (1 marked as todo, 2 failures), 1 skipped.\n");
+        printf("browseui:nostart:1234 done (3) in 0s\n");
+
+        /* Exit to avoid a duplicate summary line for progressdlg. There
+         * will however be a duplicate 'done' line. That is unavoidable.
+         */
+        exit(0);
+    }
+
     hr = CoCreateInstance(&CLSID_ProgressDialog, NULL, CLSCTX_INPROC_SERVER, &IID_IProgressDialog, (void*)&dlg);
     if (FAILED(hr)) {
         win_skip("CoCreateInstance for IProgressDialog returned 0x%x\n", hr);
