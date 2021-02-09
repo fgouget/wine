@@ -1277,6 +1277,22 @@ static void test_container_sd(void)
 
 START_TEST(crypt)
 {
+    /* WTBS One would normally set $WINETEST_TIME in the parent process */
+    winetest_time = 1;
+    trace("WTBS A sample trace\n");
+    ok(1, "WTBS A successful test\n");
+    ok(0, "WTBS A test failure\n");
+    todo_if(0) ok(1, "WTBS A not-todo successful test\n");
+    todo_if(0) ok(0, "WTBS A not-todo test failure\n");
+    todo_if(1) ok(0, "WTBS A todo test failing as expected\n");
+    todo_if(1) ok(1, "WTBS A todo test unexpectedly succeeding\n");
+    skip("WTBS A plain skip\n");
+
+    trace("WTBS Windows / Wine behavior differences\n");
+    todo_wine ok(0, "WTBS A Wine-only-todo test failing on all platforms\n");
+    todo_wine ok(1, "WTBS A Wine-only-todo test succeeding on all platforms\n");
+    win_skip("WTBS A skip which is only acceptable on Windows\n");
+
     init_function_pointers();
 
     test_rc2_keylen();
