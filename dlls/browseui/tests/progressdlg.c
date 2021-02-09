@@ -64,6 +64,20 @@ static void test_IProgressDialog_QueryInterface(void)
 
 START_TEST(progressdlg)
 {
+    if (1)
+    {
+        int i;
+        for (i = 0; i < 100; i++)
+        {
+            trace("WTBS trace %d\n", i);
+            todo_if(1) ok(0, "WTBS todo %d\n", i);
+            skip("WTBS skip %d\n", i);
+        }
+        trace("WTBS another trace\n");
+        todo_if(1) ok(0, "WTBS another todo\n");
+        skip("WTBS another skip\n");
+        return;
+    }
     CoInitialize(NULL);
 
     test_IProgressDialog_QueryInterface();
