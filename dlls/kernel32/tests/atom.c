@@ -584,8 +584,56 @@ static void test_local_error_handling(void)
     }
 }
 
+void run_child(char **argv, const char* childarg)
+{
+    PROCESS_INFORMATION pi;
+    STARTUPINFOA si = { 0 };
+    char cmdline[MAX_PATH];
+    BOOL ret;
+
+    sprintf(cmdline, "\"%s\" %s %s", argv[0], argv[1], childarg);
+    ret = CreateProcessA(argv[0], cmdline, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+    ok(ret, "Could not create process: %u\n", GetLastError());
+    wait_child_process(pi.hProcess);
+    CloseHandle(pi.hThread);
+    CloseHandle(pi.hProcess);
+}
+
 START_TEST(atom)
 {
+    int argc;
+    char **argv;
+    argc = winetest_get_mainargs( &argv );
+    if (argc <= 2)
+    {
+        trace("WTBS Test IgnoreExceptions support\n");
+        run_child(argv, "read");
+        ignore_exceptions(1);
+        run_child(argv, "write");
+        ignore_exceptions(0);
+        run_child(argv, "zero");
+    }
+    else if (strcmp(argv[2], "read") == 0)
+    {
+        int *p = NULL;
+        trace("WTBS Invalid read in the %04x child process\n", GetCurrentProcessId());
+        trace("%d\n", *p);
+    }
+    else if (strcmp(argv[2], "write") == 0)
+    {
+        int *p = NULL;
+        trace("WTBS Invalid write in the %04x child process\n", GetCurrentProcessId());
+        *p = 1;
+    }
+    else if (strcmp(argv[2], "zero") == 0)
+    {
+        int stone;
+        trace("WTBS Divide by zero in the %04x child process\n", GetCurrentProcessId());
+        stone = 1 / (argc - 3);
+        trace("infinity=%d\n", stone);
+    }
+    if (1) return;
+
     /* Global atom table seems to be available to GUI apps only in
        Win7, so let's turn this app into a GUI app */
     GetDesktopWindow();
