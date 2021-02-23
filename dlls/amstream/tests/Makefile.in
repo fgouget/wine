@@ -2,7 +2,7 @@ TESTDLL   = amstream.dll
 IMPORTS   = strmbase strmiids uuid ddraw ole32 user32
 
 C_SRCS = \
-	amstream.c
+	renamed.c
 
 RC_SRCS = \
 	rsrc.rc

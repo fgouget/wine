@@ -9379,7 +9379,7 @@ static void test_ddrawstreamsample_get_sample_times(void)
     ok(!ref, "Got outstanding refcount %d.\n", ref);
 }
 
-START_TEST(amstream)
+START_TEST(renamed)
 {
     const WCHAR *test_avi_path;
     if (1)
