@@ -2,4 +2,4 @@ TESTDLL   = apphelp.dll
 IMPORTS   = ole32
 
 C_SRCS = \
-	apphelp.c
+	renamed.c

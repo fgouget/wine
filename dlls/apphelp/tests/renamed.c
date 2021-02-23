@@ -90,8 +90,9 @@ static void test_ApphelpCheckShellObject(void)
     }
 }
 
-START_TEST(apphelp)
+START_TEST(renamed)
 {
+    trace("WTBS apphelp test: filename=%s\n", __FILE__);
 
     hdll = LoadLibraryA("apphelp.dll");
     if (!hdll) {
