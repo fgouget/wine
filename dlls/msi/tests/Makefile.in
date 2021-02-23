@@ -9,7 +9,6 @@ SOURCES = \
 	custom.c \
 	custom.spec \
 	db.c \
-	dummy.c \
 	format.c \
 	install.c \
 	msi.c \
@@ -20,4 +19,5 @@ SOURCES = \
 	selfreg.c \
 	selfreg.spec \
 	source.c \
+	suminfo.c \
 	typelib.idl

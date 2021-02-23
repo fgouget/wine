@@ -16,7 +16,7 @@
 
 #include "wine/test.h"
 
-START_TEST(dummy)
+START_TEST(suminfo)
 {
     trace("WTBS dummy test: filename=%s\n", __FILE__);
 }
