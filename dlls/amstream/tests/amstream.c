@@ -9382,6 +9382,11 @@ static void test_ddrawstreamsample_get_sample_times(void)
 START_TEST(amstream)
 {
     const WCHAR *test_avi_path;
+    if (1)
+    {
+        trace("WTBS amstream test: filename=%s\n", __FILE__);
+        return;
+    }
 
     CoInitializeEx(NULL, COINIT_MULTITHREADED);
 
