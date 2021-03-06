@@ -1,0 +1,5 @@
+MODULE = lib.and.dot.dll
+EXTRADLLFLAGS = -mno-cygwin
+
+C_SRCS = \
+	main.c

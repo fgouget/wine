@@ -1,0 +1,4 @@
+TESTDLL   = lib.and.dot.dll
+
+C_SRCS = \
+	base.c
