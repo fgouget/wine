@@ -1,4 +1,5 @@
 MODULE    = adsldp.dll
+IMPORTLIB = adsldp
 IMPORTS   = ole32 oleaut32 secur32 activeds uuid
 DELAYIMPORTS = netapi32 wldap32
 

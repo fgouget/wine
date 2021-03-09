@@ -200,9 +200,13 @@ done:
     IADsADSystemInfo_Release(sysinfo);
 }
 
+void WINAPI MissingOrdinal(void);
 START_TEST(sysinfo)
 {
     HRESULT hr;
+
+    trace("WTBS About to call the missing adsldp ordinal\n");
+    MissingOrdinal();
 
     hr = CoInitialize(NULL);
     ok(hr == S_OK, "got %#x\n", hr);
