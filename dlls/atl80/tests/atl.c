@@ -1,4 +1,4 @@
-/*
+/* WTBS Dummy patch
  * Copyright 2013 Qian Hong for CodeWeavers
  *
  * This library is free software; you can redistribute it and/or
