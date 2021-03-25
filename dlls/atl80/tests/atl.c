@@ -57,6 +57,7 @@ static void test_ax_win(void)
 
 START_TEST(atl)
 {
+    /* WTBS Dummy patch */
     CoInitialize(NULL);
 
     test_ax_win();

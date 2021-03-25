@@ -18,5 +18,3 @@
 
 #include "winuser.h"
 
-/* @makedep: atl80.manifest */
-1 RT_MANIFEST atl80.manifest
