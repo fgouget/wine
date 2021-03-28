@@ -566,10 +566,6 @@ HKLM,%CurrentVersionNT%\Print,,16
 HKLM,%CurrentVersionNT%\ProfileList,,16
 HKLM,%CurrentVersionNT%\Winlogon,"Shell",,"explorer.exe"
 
-[CurrentVersionWow64]
-HKLM,%CurrentVersion%,"ProgramFilesDir (x86)",,"%16426%"
-HKLM,%CurrentVersion%,"CommonFilesDir (x86)",,"%16428%"
-
 [Debugger]
 HKLM,%CurrentVersionNT%\AeDebug,"Debugger",2,"winedbg --auto %ld %ld"
 HKLM,%CurrentVersionNT%\AeDebug,"Auto",2,"1"
