@@ -25,6 +25,7 @@
 #include "winbase.h"
 #include "winerror.h"
 
+/* WTBS Dummy patch */
 static DWORD (WINAPI *pGetDiskFreeSpaceExA)(LPCSTR, PULARGE_INTEGER, PULARGE_INTEGER, PULARGE_INTEGER);
 
 static void test_GetDriveTypeA(void)

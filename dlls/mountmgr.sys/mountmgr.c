@@ -1006,7 +1006,7 @@ NTSTATUS WINAPI DriverEntry( DRIVER_OBJECT *driver, UNICODE_STRING *path )
 {
     static const WCHAR mounted_devicesW[] = {'S','y','s','t','e','m','\\','M','o','u','n','t','e','d','D','e','v','i','c','e','s',0};
     static const WCHAR device_mountmgrW[] = {'\\','D','e','v','i','c','e','\\','M','o','u','n','t','P','o','i','n','t','M','a','n','a','g','e','r',0};
-    static const WCHAR link_mountmgrW[] = {'\\','?','?','\\','M','o','u','n','t','P','o','i','n','t','M','a','n','a','g','e','r',0};
+    static const WCHAR link_mountmgrW[] = {'\\','?','?','\\','M','n','t','P','o','i','n','t','M','a','n','a','g','e','r',0};
     static const WCHAR harddiskW[] = {'\\','D','r','i','v','e','r','\\','H','a','r','d','d','i','s','k',0};
     static const WCHAR driver_serialW[] = {'\\','D','r','i','v','e','r','\\','S','e','r','i','a','l',0};
     static const WCHAR driver_parallelW[] = {'\\','D','r','i','v','e','r','\\','P','a','r','a','l','l','e','l',0};
