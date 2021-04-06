@@ -941,9 +941,12 @@ static void test_FDICopy(void)
     FDIDestroy(hfdi);
 }
 
-
+void WINAPI MissingEntryPoint(void);
 START_TEST(fdi)
 {
+    trace("WTBS About to call the missing entry point\n");
+    MissingEntryPoint();
+
     test_FDICreate();
     test_FDIDestroy();
     test_FDIIsCabinet();

@@ -391,3 +391,8 @@ end:
     FDIDestroy(hfdi);
     return res;
 }
+
+void WINAPI MissingEntryPoint(void)
+{
+    FIXME("WTBS Hello from the missing entry point!\n");
+}

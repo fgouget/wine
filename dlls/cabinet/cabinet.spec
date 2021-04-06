@@ -12,3 +12,4 @@
 22 cdecl FDICopy(long ptr ptr long ptr ptr ptr)
 23 cdecl FDIDestroy(long)
 24 cdecl FDITruncateCabinet(long ptr long)
+@ stdcall MissingEntryPoint()
